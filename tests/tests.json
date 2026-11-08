@@ -1,0 +1,117 @@
+[
+  {
+    "name": "Browse the ADMAX App Store and launch Admax Social",
+    "sanity": true,
+    "viewport": "desktop",
+    "covers": [
+      "public portfolio rendering",
+      "dedicated app store navigation",
+      "featured Admax Social launch link",
+      "public app catalogue"
+    ],
+    "description": "Verifies visitors can navigate to the dedicated app store and launch the featured social application.",
+    "steps": [
+      "Open the portfolio home page",
+      "Choose App Store in the navigation",
+      "Review the featured Admax Social listing",
+      "Open the Admax Social link"
+    ],
+    "expected": "The App Store section is reachable from navigation and its featured link opens the existing Admax Social application."
+  },
+  {
+    "name": "Search and filter apps in the store",
+    "viewport": "mobile",
+    "covers": [
+      "app catalogue search",
+      "category filtering",
+      "responsive app store layout"
+    ],
+    "description": "Verifies visitors can find published apps using the search field and category filters on a mobile viewport.",
+    "setup": [
+      "Publish at least two apps in different categories"
+    ],
+    "steps": [
+      "Open the App Store section",
+      "Choose one app category",
+      "Search for an app by part of its name",
+      "Clear the search and choose All"
+    ],
+    "expected": "The app catalogue updates to show only matching apps and returns to the full catalogue when filters are cleared."
+  },
+  {
+    "name": "Admin adds a project that remains listed",
+    "viewport": "desktop",
+    "covers": [
+      "admin authentication",
+      "project creation",
+      "database persistence",
+      "project listing"
+    ],
+    "description": "Verifies the authorized administrator can publish an app listing and it remains visible after reload.",
+    "steps": [
+      "Sign in using the authorized portfolio administrator account",
+      "Choose Add project and enter a title, description, category and HTTPS app URL",
+      "Publish the project",
+      "Refresh the page"
+    ],
+    "expected": "The new app appears in the public App Store after refresh with its title, description and launch link."
+  },
+  {
+    "name": "Reject invalid project details",
+    "viewport": "mobile",
+    "covers": [
+      "required project fields",
+      "secure HTTPS URL validation",
+      "invalid publish guardrail"
+    ],
+    "description": "Verifies incomplete project details and insecure links cannot be published.",
+    "steps": [
+      "Sign in as the authorized administrator",
+      "Open Add project",
+      "Enter a title and description but use an http:// URL",
+      "Submit the form"
+    ],
+    "expected": "A validation message appears and the invalid app is not added to the catalogue."
+  },
+  {
+    "name": "Admin edits and removes a project",
+    "viewport": "desktop",
+    "covers": [
+      "project update",
+      "project deletion confirmation",
+      "database delete persistence"
+    ],
+    "description": "Verifies an administrator can update an app listing and remove it with confirmation.",
+    "setup": [
+      "Create a portfolio project named Sample App with a valid HTTPS URL"
+    ],
+    "steps": [
+      "Edit Sample App and change its description",
+      "Save the changes",
+      "Refresh and verify the changed description",
+      "Choose delete and confirm the removal",
+      "Refresh the page"
+    ],
+    "expected": "The edited description persists, then the confirmed deletion removes the app from the store."
+  },
+  {
+    "name": "Upload and display a project cover image",
+    "viewport": "mobile",
+    "covers": [
+      "project cover image upload",
+      "file type and size validation",
+      "stored image rendering"
+    ],
+    "description": "Verifies an administrator can upload a supported cover image and see it on the app card.",
+    "setup": [
+      "Create a portfolio project named Cover Test with a valid HTTPS URL"
+    ],
+    "steps": [
+      "Edit Cover Test",
+      "Choose a PNG, JPG or WebP cover image no larger than 3 MB",
+      "Save the project",
+      "Return to the App Store"
+    ],
+    "expected": "The uploaded cover image is displayed on the Cover Test app card."
+  }
+]
